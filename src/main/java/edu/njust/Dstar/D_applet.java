@@ -1,11 +1,3 @@
-/* Dynamic Astar Lite 
- * author:	ShenJie
- * email:	bud000@126.com
- * Nanjing University of Science & Technology
- * 
- * FILENAME:D_applet.java
- * */
-
 package edu.njust.Dstar;
 
 import java.applet.Applet;
@@ -64,7 +56,7 @@ public class D_applet extends Applet implements ActionListener, ItemListener, Ke
 		localGridBagConstraints.gridy = 0;
 		localGridBagConstraints.gridheight = 1;
 		localGridBagConstraints.gridwidth = 1;
-		Label localLabel1 = new Label("ʵ�ʵ�ͼ", 1);
+		Label localLabel1 = new Label("实际地图", 1);
 		localLabel1.setFont(new Font("SansSerif", 3, 30));
 		add(localLabel1, localGridBagConstraints);
 
@@ -73,7 +65,7 @@ public class D_applet extends Applet implements ActionListener, ItemListener, Ke
 		localGridBagConstraints.gridy = 0;
 		localGridBagConstraints.gridheight = 1;
 		localGridBagConstraints.gridwidth = 1;
-		Label localLabel2 = new Label("D* Lite (�������Ӿ�)", 1);
+		Label localLabel2 = new Label("D* Lite (机器人视觉)", 1);
 		localLabel2.setFont(new Font("SansSerif", 3, 30));
 		add(localLabel2, localGridBagConstraints);
 
@@ -82,8 +74,8 @@ public class D_applet extends Applet implements ActionListener, ItemListener, Ke
 		localGridBagConstraints.gridy = 0;
 		localGridBagConstraints.gridheight = 1;
 		localGridBagConstraints.gridwidth = 1;
-		Label localLabel3 = new Label("D* Lite�㷨���ȼ�����", 1);
-		localLabel3.setFont(new Font("����", 2, 14));
+		Label localLabel3 = new Label("D* Lite算法优先级队列", 1);
+		localLabel3.setFont(new Font("黑体", 2, 14));
 		add(localLabel3, localGridBagConstraints);
 
 		localGridBagConstraints.fill = 0;
@@ -116,13 +108,13 @@ public class D_applet extends Applet implements ActionListener, ItemListener, Ke
 		localGridBagConstraints.gridwidth = 3;
 		add(localContainer, localGridBagConstraints);
 
-		this.restart = new Button("����");
-		this.change_start = new Button("�������");
-		this.change_goal = new Button("����Ŀ��");
-		this.move = new Button("�ƶ�");
+		this.restart = new Button("重置");
+		this.change_start = new Button("设置起点");
+		this.change_goal = new Button("设置目标");
+		this.move = new Button("移动");
 		this.next_step = new Button("Next step");
 		this.single_step_execution = new Checkbox("Step by step");
-		this.diagonals = new Checkbox("�Խ���ͨ��");
+		this.diagonals = new Checkbox("对角线通过");
 		this.move.addActionListener(this);
 		localContainer.add(this.move);
 		this.change_start.addActionListener(this);
@@ -228,7 +220,7 @@ public class D_applet extends Applet implements ActionListener, ItemListener, Ke
 				this.executing = false;
 			}
 			this.ta.setText(this.maze.Get_stack());
-		} else if (paramActionEvent.getActionCommand().equals("����")) {
+		} else if (paramActionEvent.getActionCommand().equals("重置")) {
 			this.first_change = true;
 			this.maze.Initialize();
 			this.maze.Calculate_path(this.single_step);
@@ -245,13 +237,13 @@ public class D_applet extends Applet implements ActionListener, ItemListener, Ke
 				this.executing = true;
 			}
 			this.ta.setText(this.maze.Get_stack());
-		} else if (paramActionEvent.getActionCommand().equals("�������")) {
+		} else if (paramActionEvent.getActionCommand().equals("设置起点")) {
 			Set_buttons_enabled(false);
 			this.place_start = true;
-		} else if (paramActionEvent.getActionCommand().equals("����Ŀ��")) {
+		} else if (paramActionEvent.getActionCommand().equals("设置目标")) {
 			Set_buttons_enabled(false);
 			this.place_goal = true;
-		} else if (paramActionEvent.getActionCommand().equals("�ƶ�")) {
+		} else if (paramActionEvent.getActionCommand().equals("移动")) {
 			this.first_change = true;
 			this.maze.Move(this.single_step);
 			this.maze.Draw_real_maze(this.canvas1.getGraphics2D());
@@ -271,7 +263,7 @@ public class D_applet extends Applet implements ActionListener, ItemListener, Ke
 
 	public void itemStateChanged(ItemEvent paramItemEvent) {
 		System.out.println();
-		if (((String) paramItemEvent.getItem()).equals("�Խ���ͨ��")) {
+		if (((String) paramItemEvent.getItem()).equals("对角线通过")) {
 			this.first_change = true;
 			this.maze.Set_diagonal(this.diagonals.getState());
 			this.maze.Initialize();

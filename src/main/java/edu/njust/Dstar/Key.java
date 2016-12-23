@@ -1,11 +1,3 @@
-/* Dynamic Astar Lite 
- * author:	ShenJie
- * email:	bud000@126.com
- * Nanjing University of Science & Technology
- * 
- * FILENAME:Key.java
- * */
-
 package edu.njust.Dstar;
 
 import java.util.Comparator;
