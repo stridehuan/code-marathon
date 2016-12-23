@@ -527,9 +527,9 @@ public class MatrixUDG {
         MatrixUDG pG;
 
         // 自定义"图"(输入矩阵队列)
-        //pG = new MatrixUDG();
+        pG = new MatrixUDG();
         // 采用已有的"图"
-        pG = new MatrixUDG(vexs, matrix);
+//        pG = new MatrixUDG(vexs, matrix);
 
         //pG.print();   // 打印图
         //pG.DFS();     // 深度优先遍历
